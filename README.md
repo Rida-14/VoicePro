@@ -50,7 +50,7 @@ voicepro/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/voicepro.git
+git clone https://github.com/Rida-14/voicepro.git
 cd voicepro
 ```
 
