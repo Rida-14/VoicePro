@@ -1,0 +1,22 @@
+# Database
+*.db
+instance/
+
+# Python
+*.pyc
+__pycache__/
+venv/
+.venv/
+
+# Environment (NEVER commit .env with real keys)
+.env
+
+# Logs
+*.log
+
+# Uploads
+uploads/
+
+# Misc
+package-lock.json
+.DS_Store

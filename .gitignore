@@ -1,0 +1,18 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Whitebook docs (not part of the app)
+VoicePro_Whitebook_*.md
+generate_whitebook.py
+
+# Gemini agent files
+.gemini/
+.agents/
