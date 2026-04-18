@@ -507,10 +507,18 @@
 }
 
 @media (max-width: 768px) {
+  .profile-page {
+    padding: 16px;
+  }
+
   .profile-container {
     grid-template-columns: 1fr;
   }
   
+  .settings-pane {
+    padding: 24px 16px;
+  }
+
   .settings-sidebar {
     position: static;
     flex-direction: row;

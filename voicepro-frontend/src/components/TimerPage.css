@@ -1136,19 +1136,25 @@
   color: var(--primary);
 }
 
+.timer-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
 /* Responsive update */
 @media (max-width: 1200px) {
-  .timer-grid {
+  .timer-dashboard-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "timer"
-      "sidebar"
-      "entries"
-      "goals";
   }
 }
 
 @media (max-width: 768px) {
+  .timer-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
   .timer-page {
     padding: 16px;
   }

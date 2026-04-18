@@ -493,15 +493,7 @@ const TimerPage = () => {
         </div>
 
 
-        <div
-          className="timer-dashboard-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
-            gap: '24px',
-            alignItems: 'stretch'
-          }}
-        >
+        <div className="timer-dashboard-grid">
           {/* Left Column: Timer & History */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Timer Card */}

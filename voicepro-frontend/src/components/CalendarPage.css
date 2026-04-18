@@ -627,14 +627,15 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .calendar-content { grid-template-columns: 1fr; align-items: start; }
-  .calendar-grid-container, .events-sidebar { min-height: 400px; }
+  .calendar-grid-container { min-height: 400px; }
+  .events-sidebar { min-height: 400px; height: auto; max-height: 800px; }
 }
 
 @media (max-width: 768px) {
   .calendar-page { padding: 16px; }
   .calendar-page .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .header-left { width: 100%; }
-  .header-controls { width: 100%; justify-content: flex-start; }
+  .header-controls { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
   
   .calendar-controls { flex-direction: column; gap: 16px; padding: var(--spacing-md); }
   .calendar-nav { flex-wrap: wrap; justify-content: center; }
