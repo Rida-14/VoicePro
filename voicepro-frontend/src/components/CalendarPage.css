@@ -631,9 +631,25 @@
 }
 
 @media (max-width: 768px) {
+  .calendar-page { padding: 16px; }
+  .calendar-page .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .header-left { width: 100%; }
+  .header-controls { width: 100%; justify-content: flex-start; }
+  
   .calendar-controls { flex-direction: column; gap: 16px; padding: var(--spacing-md); }
+  .calendar-nav { flex-wrap: wrap; justify-content: center; }
   .current-month { min-width: auto; }
+  
+  .calendar-grid-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 24px; /* for scrollbar */
+  }
+  
+  .calendar-grid {
+    min-width: 600px; /* Forces horizontal scrolling instead of squishing */
+  }
+
   .day-number { font-size: 0.75rem; }
   .event-dots { display: none; }
-  .header-actions { flex-wrap: wrap; }
 }

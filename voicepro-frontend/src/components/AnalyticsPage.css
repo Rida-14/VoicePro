@@ -457,6 +457,29 @@
   padding-right: 20px;
 }
 
+.heatmap-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px; /* space for scrollbar */
+}
+
+/* Custom scrollbar for heatmap */
+.heatmap-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.heatmap-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+.heatmap-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.heatmap-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .heatmap-container {
   display: flex;
   gap: 0;
@@ -464,5 +487,6 @@
   overflow: visible;
   padding: 6px;
   width: 100%;
+  min-width: 600px; /* Force minimum width to allow scrolling instead of squishing */
   box-sizing: border-box;
 }

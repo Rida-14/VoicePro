@@ -1242,17 +1242,34 @@
 
 /* --- Responsive Media Queries --- */
 @media (max-width: 1024px) {
-  .glance-widget { grid-column: span 12; height: 400px;}
+  .stats-grid-2x2 { grid-column: span 12; }
+  .priority-matrix-widget { grid-column: span 12; }
+  .glance-widget { grid-column: span 12; height: 400px; }
+  .timeline-widget { grid-column: span 12; }
   .pomodoro-widget { grid-column: span 12; height: 400px; }
 }
 
 @media (max-width: 768px) {
-  .dashboard { padding: 24px; }
-  .dashboard-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .stats-widget { grid-template-columns: 1fr; }
+  .dashboard { padding: var(--spacing-md); gap: var(--spacing-lg); }
+  .dashboard-header-banner { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 16px; 
+    padding: 24px; 
+  }
+  .stats-grid-2x2 { grid-template-columns: 1fr; }
+  .dashboard-grid { gap: 24px; }
+  
+  /* Make text smaller on mobile banner */
+  .hero-title { font-size: 1.75rem; }
+  
   .fab-container { bottom: 24px; right: 24px; }
-  .timer-circle { width: 200px; height: 200px; }
+  .timer-circle { width: 220px; height: 220px; }
   .timer-display { font-size: 3rem; }
+  
+  /* Allow glance widget to auto height instead of fixed if needed or keep scroll */
+  .glance-widget { padding: 24px; }
+  .pomodoro-widget { padding: 24px; }
 }
 
 /* --- New Header Banner --- */

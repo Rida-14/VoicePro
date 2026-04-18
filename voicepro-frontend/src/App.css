@@ -197,8 +197,32 @@
     grid-template-columns: 1fr;
   }
 
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+  }
+
+  .menu-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
   .sidebar {
     position: fixed;
+    top: 0;
+    bottom: 0;
     left: -280px;
     width: 280px;
     z-index: 1000;
@@ -210,25 +234,44 @@
     left: 0;
   }
 
-  .main-content {
-    grid-column: 1;
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
   }
 
-  /* Mobile menu button (you'll need to add this functionality) */
-  .menu-button {
-    position: fixed;
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
-    z-index: 999;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-md);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+  .mobile-close-btn {
     display: flex;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
     align-items: center;
     justify-content: center;
     cursor: pointer;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+  }
+
+  .main-content {
+    grid-column: 1;
+    /* Adjust padding if necessary because mobile header pushes content down, but since it's normal document flow it should be fine */
+  }
+}
+
+/* Hide mobile header and overlay on desktop */
+@media (min-width: 769px) {
+  .mobile-header, .sidebar-overlay, .mobile-close-btn {
+    display: none;
   }
 }
 

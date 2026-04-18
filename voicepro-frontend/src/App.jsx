@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { Home, CheckSquare, Timer, BarChart3, Calendar, Mic, LogOut, Settings } from 'lucide-react';
+import { Home, CheckSquare, Timer, BarChart3, Calendar, Mic, LogOut, Settings, Menu, X } from 'lucide-react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { AppProvider } from './contexts/AppContext';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -25,45 +25,84 @@ import './App.css';
 // Main App Layout with Sidebar
 const AppLayout = () => {
   const { user, logout } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <div className="app">
+    <div className={`app ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+      {/* Mobile Header (visible only on small screens) */}
+      <div className="mobile-header">
+        <div className="logo">
+          <Mic className="logo-icon" size={24} />
+          <span className="logo-text">VoicePro</span>
+        </div>
+        <button 
+          className="menu-toggle-btn" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="sidebar-overlay animate-fadeIn" 
+          onClick={closeMenu}
+        />
+      )}
+
       {/* Sidebar Navigation */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
             <Mic className="logo-icon" size={28} />
             <span className="logo-text">VoicePro</span>
           </div>
+          {/* Close button for mobile inside sidebar */}
+          <button className="mobile-close-btn" onClick={closeMenu}>
+            <X size={20} />
+          </button>
         </div>
 
         <nav className="sidebar-nav">
-          <NavLink to="/" className="nav-item" end>
+          <NavLink to="/" className="nav-item" end onClick={closeMenu}>
             <Home className="nav-icon" size={20} />
             <span className="nav-label">Dashboard</span>
           </NavLink>
           
-          <NavLink to="/tasks" className="nav-item">
+          <NavLink to="/tasks" className="nav-item" onClick={closeMenu}>
             <CheckSquare className="nav-icon" size={20} />
             <span className="nav-label">Tasks</span>
           </NavLink>
           
-          <NavLink to="/timer" className="nav-item">
+          <NavLink to="/timer" className="nav-item" onClick={closeMenu}>
             <Timer className="nav-icon" size={20} />
             <span className="nav-label">Time Tracker</span>
           </NavLink>
           
-          <NavLink to="/calendar" className="nav-item">
+          <NavLink to="/calendar" className="nav-item" onClick={closeMenu}>
             <Calendar className="nav-icon" size={20} />
             <span className="nav-label">Calendar</span>
           </NavLink>
           
-          <NavLink to="/analytics" className="nav-item">
+          <NavLink to="/analytics" className="nav-item" onClick={closeMenu}>
             <BarChart3 className="nav-icon" size={20} />
             <span className="nav-label">Insights</span>
           </NavLink>
 
-          <NavLink to="/settings" className="nav-item">
+          <NavLink to="/settings" className="nav-item" onClick={closeMenu}>
             <Settings className="nav-icon" size={20} />
             <span className="nav-label">Settings</span>
           </NavLink>

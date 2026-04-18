@@ -372,8 +372,9 @@ const AnalyticsPage = () => {
           });
 
           return (
-            <div className="github-heatmap-wrapper" style={{ width: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-              <div className="heatmap-months" style={{ display: 'flex', gap: '4px', paddingLeft: '38px', marginBottom: '8px' }}>
+            <div className="heatmap-scroll-wrapper">
+              <div className="github-heatmap-wrapper" style={{ width: '100%', display: 'flex', flexDirection: 'column', position: 'relative', minWidth: '600px' }}>
+                <div className="heatmap-months" style={{ display: 'flex', gap: '4px', paddingLeft: '38px', marginBottom: '8px' }}>
                 {weeks.map((week, wIdx) => {
                   const hasLabel = monthLabels.find(m => m.col === wIdx);
                   return (
@@ -481,6 +482,7 @@ const AnalyticsPage = () => {
                   </div>
                 </div>
               )}
+            </div>
             </div>
           );
         })()}
