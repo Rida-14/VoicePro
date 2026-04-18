@@ -3,6 +3,8 @@
   grid-template-columns: 280px 1fr;
   min-height: 100vh;
   position: relative;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Sidebar */
@@ -183,6 +185,9 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  min-width: 0;       /* Critical: forces grid child to shrink below content size */
+  max-width: 100%;    /* Prevent blowout */
+  width: 100%;
 }
 
 /* Mobile Responsiveness */
@@ -264,7 +269,8 @@
 
   .main-content {
     grid-column: 1;
-    /* Adjust padding if necessary because mobile header pushes content down, but since it's normal document flow it should be fine */
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 

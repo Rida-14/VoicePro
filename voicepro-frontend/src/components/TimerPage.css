@@ -1136,12 +1136,6 @@
   color: var(--primary);
 }
 
-.timer-dashboard-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: stretch;
-}
 
 /* Responsive update */
 @media (max-width: 1200px) {
@@ -1157,26 +1151,11 @@
   }
   .timer-page {
     padding: 16px;
-    overflow-x: hidden;
   }
-  .page-header {
+  .timer-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
   }
-  .header-controls {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 12px;
-  }
-  .header-controls .action-btn {
-    flex: 1;
-    min-width: 140px;
-    justify-content: center;
-  }
-  
   .timer-actions {
     width: 100%;
     flex-direction: column;
@@ -1185,21 +1164,18 @@
     width: 100%;
     justify-content: center;
   }
+  .timer-circle {
+    width: 220px;
+    height: 220px;
+  }
   .timer-display {
-    width: 220px !important;
-    height: 220px !important;
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   .timer-ambient-glow {
-    width: 220px !important;
-    height: 220px !important;
+    width: 240px;
+    height: 240px;
   }
   
-  .timer-type-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px;
-  }
-
   .week-chart {
     overflow-x: auto;
   }
