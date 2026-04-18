@@ -121,6 +121,12 @@ def create_app(config_name=None):
             db.session.add(demo_user)
             db.session.commit()
             print("✓ Demo user created (email: demo@voicepro.com, password: Demo1234)")
+            
+            try:
+                from seed_demo_data import seed_data
+                seed_data()
+            except Exception as e:
+                print(f"Error seeding demo data: {e}")
     
     return app
 
