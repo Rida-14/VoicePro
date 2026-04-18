@@ -179,4 +179,4 @@ def seed_data():
     print("✅ Awesome demo data seeded successfully! Ready for April 20th presentation.")
 
 if __name__ == '__main__':
-seed_data()
+    seed_data()
