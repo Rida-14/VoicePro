@@ -42,8 +42,9 @@ def google_callback():
     """Handle Google OAuth callback"""
     code = request.args.get('code')
     error = request.args.get('error')
-    frontend_url = 'http://localhost:3000'
-
+    # Use the first configured CORS origin as the frontend URL
+    cors_origins = current_app.config.get('CORS_ORIGINS', ['http://localhost:3000'])
+    frontend_url = cors_origins[0] if isinstance(cors_origins, list) else cors_origins
     if error:
         return redirect(f'{frontend_url}/login?error=google_denied')
 
